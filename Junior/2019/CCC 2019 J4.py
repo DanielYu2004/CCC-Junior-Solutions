@@ -15,3 +15,4 @@ if hori == 0 and vert == 1:
 if hori == 0 and vert == 0:
     print('1 2')
     print('3 4')
+#remember to try to make a one line sol
