@@ -1,7 +1,7 @@
 flips = input()
 
 hori = flips.count('H') % 2
-vert = flips.count('V') % 2
+vert = (len(flips)-hori) % 2
 
 if hori == 1 and vert == 1:
     print('4 3')
