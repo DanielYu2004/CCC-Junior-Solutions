@@ -1,1 +1,1 @@
-My solutions to the UW CEMC Canadian Computing Competition
+My solutions to the Canadian Computing Competition
