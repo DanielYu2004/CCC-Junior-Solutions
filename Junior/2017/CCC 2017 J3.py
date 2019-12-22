@@ -2,8 +2,8 @@ start = input().split()
 end = input().split()
 energy = int(input())
 
-xdif = int(start[0]) - int(end[0])
-ydif = int(start[1]) - int(end[1])
+xdif = abs(int(start[0]) - int(end[0]))
+ydif = abs(int(start[1]) - int(end[1]))
 
 if (ydif + xdif > energy):
     print("N")
