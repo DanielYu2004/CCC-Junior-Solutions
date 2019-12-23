@@ -15,17 +15,23 @@ solheights = [0] * len(heights)
 
 
 
-arrr = arr
 for i in range(len(heights)):
-    temparr = arrr
+    temparr = arr
     temparr = list(temparr)
-    while (len(temparr) > 0):
+    temparr.sort() #what the fukc why does removing .sort change anything what the fuck
+    #print(i)
+    while (temparr):
+            #print(temparr)
         #if ((heights[i] - temparr[0]) in temparr):
             #if (temparr[1:].index(heights[i] - temparr[0])):
-        if((heights[i]-temparr[0]) in temparr[1:]):
+        #if((heights[i]-temparr[0]) in temparr[1:]):
+        #if ((heights[i]-temparr[0] in temparr[1:])):
+        if (heights[i] - temparr[0] in temparr[1:]):
             solheights[i] += 1    
             temparr.remove(heights[i] - temparr[0])
-        if len(temparr) > 0:
+            del temparr[0]
+        #if len(temparr) > 0:
+        else:
             del temparr[0]
 
 
