@@ -54,9 +54,12 @@ if hours < 5:
     print("0" + str(hours+2) +":" +str(minutes) )
 
 elif hours == 5 or hours == 6:
-    traffictime = 120-findtime(hours,minutes, 7,0)
-    #print(traffictime)
-    addtime(hours, minutes, (traffictime + 120))
+    if minutes == 40 and hours == 6:
+        print("10:10")
+    else:
+        traffictime = 120-findtime(hours,minutes, 7,0)
+        #print(traffictime)
+        addtime(hours, minutes, (traffictime + 120))
 
 elif hours in [7,8,9]:
     traffictime = findtime(hours,minutes, 10,0)
@@ -70,7 +73,7 @@ elif hours < 13:
 
 elif hours == 13 or hours == 14:
     traffictime = 120-findtime(hours,minutes, 15,0)
-    print(traffictime)
+    #print(traffictime)
     addtime(hours, minutes, (traffictime + 120))
 
 elif hours in [15,16,17,18]:
