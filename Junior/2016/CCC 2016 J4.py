@@ -1,4 +1,4 @@
-time = input() #try converting all units to minutes next time
+time = input() #try converting all units to minutes next time and use less if statements
 
 hours = int(time[0:2])
 minutes = int(time[3:5])
