@@ -60,3 +60,4 @@ else:
   print("N")
 
 print(smallest_level)
+
