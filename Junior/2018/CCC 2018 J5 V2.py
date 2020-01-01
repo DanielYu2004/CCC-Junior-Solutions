@@ -1,3 +1,6 @@
+#woohoo perfect score this time
+
+
 class Page:
     def __init__(self, value):
         self.value = value
@@ -11,14 +14,46 @@ def findreachable(node, reachedpages):
         for i in node.children:
             findreachable(i, reachedpages)
 
-def traversal (node, visited, level):
-    level+=1
-    if (node not in visited):
-        visited.append(node)
-        for i in node.children:
-            templevel = level
-            return(traversal(i, visited, templevel))
-    return(level)
+def traversal (nodes, visited, level):
+    level += 1
+    queue = []
+    for node in nodes:
+
+        if node not in visited:
+            visited.append(node)
+            #print("node:" , node.value)
+            
+            if node.children:
+                for x in node.children:
+                    queue.append(x)
+            else:
+                print(level)
+                return()
+
+    traversal(queue, visited, level)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #level+=1
+    #if (node not in visited):
+    #    visited.append(node)
+    #    print(node.value)
+    #    for i in node.children:
+    #        templevel = level
+    #        return(traversal(i, visited, templevel))
+    #return(level)
 
 
 
@@ -50,7 +85,7 @@ else:
 
 level = 0
 visited = []
-print(traversal(book[1], visited, level))
+traversal([book[1]], visited, level)
 
 
 
