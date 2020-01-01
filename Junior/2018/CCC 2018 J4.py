@@ -31,3 +31,14 @@ def check (grid):
                 print (grid[i][e], end = ' ')
             print ("")
     #    exit()
+            
+check(grid)
+#print (grid)
+check(rotate(grid))
+#print (rotate(grid))
+check(rotate(rotate(grid)))
+#print (rotate(rotate(grid)))
+check(rotate(rotate(rotate(grid))))
+#print (rotate(rotate(rotate(grid))))
+
+        
