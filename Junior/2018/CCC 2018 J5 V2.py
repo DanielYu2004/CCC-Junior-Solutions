@@ -1,5 +1,5 @@
 #woohoo perfect score this time
-
+#remember to try to use a set this time
 
 class Page:
     def __init__(self, value):
@@ -73,7 +73,7 @@ for i in range(1,num_pages+1):
         book[i].children.append(book[q])
 
 
-reachedpages = []
+reachedpages = []#use a set instead?
 
 findreachable(book[1], reachedpages)
 
