@@ -31,7 +31,6 @@ def check (grid):
                 print (grid[i][e], end = ' ')
             print ("")
     #    exit()
-    #the quick brown fox jumps over the lazy dog the quick brown fox jumps over the lazy dog the quick brown fox jumps o
 check(grid)
 #print (grid)
 check(rotate(grid))
