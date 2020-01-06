@@ -37,25 +37,33 @@ class Node:
         self.path = []
 
 
-    def determine_paths(self, nodes, level):
+    def determine_paths(self, nodes, level, visited):
         if level < steps:
             level +=1
             queue = []
             for node in nodes:
-                for i in(applyrules(node.value)): #remember to consider repeat strings -> make a hashmap of already created nodes
-                    temp = Node(i[0], level)
-                    temp.path = node.path + [i[2], i[1], temp.value]
-                    if temp.value == end and temp.level == steps:
-                        repeat = len(temp.path)/3
-                        for i in range(int(repeat)):
-                            print(temp.path[i*3], (temp.path[(i*3)+1])+1, temp.path[(i*3)+2])
-                        exit()
-                    queue.append(temp)
-                    #print(temp.value)
-            self.determine_paths(queue, level)
+                if node not in visited:
+                    visited[node] = applyrules(node.value)
+                if level == steps:
+                    for i in visited[node]: 
+                        temp = Node(i[0], level)
+                        temp.path = node.path + [i[2], i[1], temp.value]
+                        if temp.value == end:
+                            repeat = len(temp.path)/3
+                            for i in range(int(repeat)):
+                                print(temp.path[i*3], (temp.path[(i*3)+1])+1, temp.path[(i*3)+2])
+                            exit()
+                        queue.append(temp)
+                else:
+                    for i in visited[node]: 
+                        temp = Node(i[0], level)
+                        temp.path = node.path + [i[2], i[1], temp.value]
+                        queue.append(temp)
+
+            self.determine_paths(queue, level, visited)
 
   
 
 root = Node(initial, 0)
-root.determine_paths([root], 0)
+root.determine_paths([root], 0, {})
 
