@@ -42,43 +42,20 @@ class Node:
             level +=1
             queue = []
             for node in nodes:
-                
                 for i in(applyrules(node.value)): #remember to consider repeat strings -> make a hashmap of already created nodes
-                    #print(i)
                     temp = Node(i[0], level)
-                    node.children[temp] = [i[1], i[2]]#this doesn't have to be dictionary
-                    temp.path = node.path
-                    temp.path = temp.path + [i[2], i[1], temp.value]
+                    temp.path = node.path + [i[2], i[1], temp.value]
+                    if temp.value == end and temp.level == steps:
+                        repeat = len(temp.path)/3
+                        for i in range(int(repeat)):
+                            print(temp.path[i*3], (temp.path[(i*3)+1])+1, temp.path[(i*3)+2])
+                        exit()
                     queue.append(temp)
                     #print(temp.value)
             self.determine_paths(queue, level)
 
-#    def bfs(self, nodes, visited):
-#        queue = []
-#        for node in nodes:
-#            if node not in visited:
-#                visited.append(node)
-#                if node.value == end and node.level == steps:
-##                    return(node)
-#                queue.append(node)  
-#        return()
-
-    def dfs(self, node):
-        if str(node.value) == str(end) and int(node.level) == steps:
-            repeat = len(node.path)/3
-            for i in range(int(repeat)):
-                print(node.path[i*3], (node.path[(i*3)+1])+1, node.path[(i*3)+2])
-            exit()
-            #print("FUCK")
-
-
-        for i in node.children.keys():
-            self.dfs(i)
-            
-
-            
+  
 
 root = Node(initial, 0)
 root.determine_paths([root], 0)
-#print(applyrules(initial))
-root.dfs(root)
+
