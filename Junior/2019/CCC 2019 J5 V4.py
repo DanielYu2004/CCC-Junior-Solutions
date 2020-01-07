@@ -28,7 +28,7 @@ steps = int(inputs[0])
 initial = inputs[1]
 end = inputs[2]
 
-
+counter = 0
 class Node:
     def __init__(self, value, level):
         self.value = value
@@ -37,11 +37,15 @@ class Node:
 
 
     def dfs(self, node, level, visited):
+        #print(node.value)
         if level < steps:
             level+=1
-            if node not in visited:
-                visited[node] = applyrules(node.value)
-            for i in visited[node]:
+            if node.value not in visited:
+                global counter
+                counter +=1
+                print(counter)
+                visited[node.value] = applyrules(node.value)
+            for i in visited[node.value]:
                 temp = Node(i[0], level)
                 temp.path = node.path + [i[2], i[1], temp.value]
                 if temp.value == end:
