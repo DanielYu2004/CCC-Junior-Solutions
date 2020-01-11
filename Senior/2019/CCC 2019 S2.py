@@ -1,3 +1,5 @@
+import math
+
 num_inputs = int(input())
 
 inputs_list = []
@@ -25,11 +27,12 @@ def find_primes(target):
   
     for i in range(max(primes),target):
         isPrime = True
-        for x in range(2, (i//2)):
+        for x in range(2, math.ceil(math.sqrt(i)) + 1):
 
             if i % x == 0:
                 isPrime = False
                 break
+
         if isPrime == True:
             primes.add(i)
             #print(i)
@@ -37,9 +40,11 @@ def find_primes(target):
                 checked[target - i] = i
 
                 tempcheck = target-i
-                for p in range(2,tempcheck//2):
+
+                for p in range(2,math.ceil(math.sqrt(tempcheck)) + 1):
                     if (tempcheck % p) == 0:
                         break
+
                 else:
                     print(i, tempcheck)
                     return()
