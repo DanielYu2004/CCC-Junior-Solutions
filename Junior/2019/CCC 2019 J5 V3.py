@@ -37,7 +37,7 @@ class Node:
         self.path = []
 
 
-    def determine_paths(self, nodes, level, visited):
+    def bfs(self, nodes, level, visited):
         if level < steps:
             level +=1
             queue = []
@@ -60,10 +60,10 @@ class Node:
                         temp.path = node.path + [i[2], i[1], temp.value]
                         queue.append(temp)
 
-            self.determine_paths(queue, level, visited)
+            self.bfs(queue, level, visited)
 
   
 
 root = Node(initial, 0)
-root.determine_paths([root], 0, {})
+root.bfs([root], 0, {})
 
