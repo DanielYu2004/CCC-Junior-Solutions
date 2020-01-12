@@ -69,7 +69,6 @@ class Node:
             for i in range(int(repeat)):
                 print(node.path[i*3], (node.path[(i*3)+1])+1, node.path[(i*3)+2])
             exit()
-            #print("FUCK")
 
 
         for i in node.children.keys():

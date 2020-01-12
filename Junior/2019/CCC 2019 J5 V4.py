@@ -28,6 +28,8 @@ steps = int(inputs[0])
 initial = inputs[1]
 end = inputs[2]
 
+
+
 counter = 0
 class Node:
     def __init__(self, value, level):
