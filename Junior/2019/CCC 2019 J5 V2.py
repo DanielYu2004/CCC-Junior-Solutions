@@ -79,5 +79,4 @@ class Node:
 
 root = Node(initial, 0)
 root.determine_paths([root], 0)
-#print(applyrules(initial))
 root.dfs(root)
