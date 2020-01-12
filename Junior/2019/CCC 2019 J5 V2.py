@@ -52,6 +52,7 @@ class Node:
                     for i in range(int(repeat)):
                         print(temp.path[i*3], (temp.path[(i*3)+1])+1, temp.path[(i*3)+2])
                     exit()
+                
                 self.dfs(temp, level)
 
 root = Node(initial, 0)

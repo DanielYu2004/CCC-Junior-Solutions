@@ -18,7 +18,7 @@ solheights = [0] * len(heights)
 for i in range(len(heights)):
     temparr = arr
     temparr = list(temparr)
-    temparr.sort() #what the fukc why does removing .sort change anything what the fuck
+    temparr.sort() 
     while (temparr):
         if (heights[i] - temparr[0] in temparr[1:]):
             solheights[i] += 1    
