@@ -3,7 +3,7 @@ import math
 num_inputs = int(input())
 
 inputs_list = []
-for i in range(num_inputs):
+for x in range(num_inputs):
     inputs_list.append(int(input()))
 
 primes = set()
