@@ -29,30 +29,41 @@ initial = inputs[1]
 end = inputs[2]
 
 
-
 class Node:
     def __init__(self, value, level):
         self.value = value
         self.level = level
+        self.children = {}
         self.path = []
 
 
-    def dfs(self, node, level, visited):
+    def bfs(self, nodes, level, visited):
         if level < steps:
-            level+=1
-            if node.value not in visited:
-                visited[node.value] = applyrules(node.value)
-            for i in visited[node.value]:
-                temp = Node(i[0], level)
-                temp.path = node.path + [i[2], i[1], temp.value]
-                if temp.value == end:
-                    
-                    repeat = len(temp.path)/3
-                    for i in range(int(repeat)):
-                        print(temp.path[i*3], (temp.path[(i*3)+1])+1, temp.path[(i*3)+2])
-                    exit()
-                self.dfs(temp, level, visited)
+            level +=1
+            queue = []
+            for node in nodes:
+                if node not in visited:
+                    visited[node] = applyrules(node.value)
+                if level == steps:
+                    for i in visited[node]: 
+                        temp = Node(i[0], level)
+                        temp.path = node.path + [i[2], i[1], temp.value]
+                        if temp.value == end:
+                            repeat = len(temp.path)/3
+                            for i in range(int(repeat)):
+                                print(temp.path[i*3], (temp.path[(i*3)+1])+1, temp.path[(i*3)+2])
+                            exit()
+                        queue.append(temp)
+                else:
+                    for i in visited[node]: 
+                        temp = Node(i[0], level)
+                        temp.path = node.path + [i[2], i[1], temp.value]
+                        queue.append(temp)
+
+            self.bfs(queue, level, visited)
+
+  
 
 root = Node(initial, 0)
-root.dfs(root, 0, {})
+root.bfs([root], 0, {})
 
