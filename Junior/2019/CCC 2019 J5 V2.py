@@ -9,19 +9,19 @@ def applyrules(string):
     for i in range(len(string)):
         if len(string) - i >= len(ruleone[0]):
             if string[i:len(ruleone[0])+i] == ruleone[0]:
-                if [string[0:i] + ruleone[1] + string[i+len(ruleone[0]):] not in visited:
+                if string[0:i] + ruleone[1] + string[i+len(ruleone[0]):] not in visited:
                     output.append([string[0:i] + ruleone[1] + string[i+len(ruleone[0]):], i, "1"])
 
     for i in range(len(string)):
         if len(string) - i >= len(ruletwo[0]):
             if string[i:len(ruletwo[0])+i] == ruletwo[0]:
-                if [string[0:i] + ruletwo[1] + string[i+len(ruletwo[0]):] not in visited:
+                if string[0:i] + ruletwo[1] + string[i+len(ruletwo[0]):] not in visited:
                     output.append([string[0:i] + ruletwo[1] + string[i+len(ruletwo[0]):], i, "2"])
 
     for i in range(len(string)):
         if len(string) - i >= len(rulethree[0]):
             if string[i:len(rulethree[0])+i] == rulethree[0]:
-                if [string[0:i] + rulethree[1] + string[i+len(rulethree[0]):] not in visited:
+                if string[0:i] + rulethree[1] + string[i+len(rulethree[0]):] not in visited:
                     output.append([string[0:i] + rulethree[1] + string[i+len(rulethree[0]):], i, "3"])
     return(output)
 
