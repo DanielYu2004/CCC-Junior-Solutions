@@ -1,5 +1,5 @@
 from math import sqrt
-from math import floor
+from math import ceil
 import sys
 width = int(input())
 length = int(input())
@@ -18,14 +18,15 @@ for x in range(width):
 
 #print(values)
 #print(board)
-start = board[0][0]
-end = width * length
+start = int(board[0][0])
+end = int(width * length)
 
 visited = set()
 
 def possibleJumps(product):
     output = []
-    for i in range(1, int(floor(sqrt(product)) + 1)):
+    product = int(product)
+    for i in range(1, int(ceil(sqrt(product)) + 1)):
         temp = product / i
         if int(temp) == temp:
             #print(visited)
@@ -39,20 +40,25 @@ def possibleJumps(product):
     return(output)
 
 #print(possibleJumps(100))
-
+mem = {}
 def recurse(positionnum):
     global end
     global board
+    global mem
+    positionnum = int(positionnum)
+    print(positionnum)
     if positionnum == end or positionnum == str(end):
         print("yes")
         sys.exit()
     #print(positionnum)
     else:
+
         next = possibleJumps(int(positionnum))
+        #print("Next" , next)
         for i in next:
-            if len(board) > i[0]-1 and len(board[0]) > i[1]-1: 
+            if width > i[0]-1 and length > i[1]-1: 
                 #print(i)
                 #print(board[i[0]-1][i[1]-1])
-                recurse(board[i[0]-1][i[1]-1])
+                    recurse(board[i[0]-1][i[1]-1])
 recurse(int(start))
 print("no")
